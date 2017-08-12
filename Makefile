@@ -1,5 +1,5 @@
 COMPILER=g++
-FLAGS=-std=c++11 -g
+FLAGS=-std=c++11 -g -Wall -Wpedantic
 
 .PHONY: all q1
 
