@@ -1,38 +1,5 @@
-#include <iostream>
-#include <math.h>
-#include <vector>
-#include <array>
-
-struct Point {
-    double x;
-    double y;
-
-    Point(double px, double py) : x(px), y(py) {}
-
-    friend
-    std::ostream& operator<<(std::ostream& st, const Point& point);
-
-    Point operator+(const Point& other) {
-        return Point(x + other.x, y + other.y);
-    }
-
-    Point operator-(const Point& other) {
-        return Point(x - other.x, y - other.y);
-    }
-
-    bool operator==(const Point& other) const {
-        return x == other.x && y == other.y;
-    }
-
-    bool operator!=(const Point& other) const {
-        return !(*this == other);
-    }
-};
-
-std::ostream&
-operator<<(std::ostream& st, const Point& point) {
-    return st << '(' << point.x << ',' << point.y << ')';
-}
+#include "point.h"
+#include "polygon.h"
 
 struct Shape {
 
@@ -93,18 +60,15 @@ public:
     points({p1,p2,p3,p4}) {}
 
     double area() {
-        // TODO: implement
-        return 0;
+        return polygon::area(points);
     }
 
     double circumference() {
-        // TODO: implement
-        return 0;
+        return polygon::perimeter(points);
     }
 
     std::pair<Point, Point> boundingBox() {
-        // TODO: implement
-        return std::make_pair(Point(0,0), Point(0,0));
+        return polygon::boundingBox(points);
     }
 
     void display() {
@@ -123,18 +87,15 @@ public:
     points({p1,p2,p3}) {}
 
     double area() {
-        // TODO: implement
-        return 0;
+        return polygon::area(points);
     }
 
     double circumference() {
-        // TODO: implement
-        return 0;
+        return polygon::perimeter(points);
     }
 
     std::pair<Point, Point> boundingBox() {
-        // TODO: implement
-        return std::make_pair(Point(0,0), Point(0,0));
+        return polygon::boundingBox(points);
     }
 
     void display() {
