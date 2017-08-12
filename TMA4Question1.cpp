@@ -105,6 +105,7 @@ public:
 };
 
 int main() {
+    // TODO: test numbers
     Circle circle(Point(10,5), 23);
     Square square(Point(-10,7), Point(-6,12), Point(4,23), Point(5,-5));
     Triangle triangle(Point(-15,15), Point(10,10), Point(0,0));
