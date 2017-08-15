@@ -57,7 +57,7 @@ private:
 public:
     Square(Point p1, Point p2, Point p3, Point p4) :
     /* The points must be in clockwise order */
-    points({p1,p2,p3,p4}) {}
+    points({{p1,p2,p3,p4}}) {}
 
     double area() {
         return polygon::area(points);
@@ -84,7 +84,7 @@ private:
 public:
     Triangle(Point p1, Point p2, Point p3) :
     /* The points must be in clockwise order */
-    points({p1,p2,p3}) {}
+    points({{p1,p2,p3}}) {}
 
     double area() {
         return polygon::area(points);
@@ -105,7 +105,6 @@ public:
 };
 
 int main() {
-    // TODO: test numbers
     Circle circle(Point(10,5), 23);
     Square square(Point(-10,7), Point(-6,12), Point(4,23), Point(5,-5));
     Triangle triangle(Point(-15,15), Point(10,10), Point(0,0));

@@ -2,7 +2,6 @@
 #define POLYGON_H
 
 #include <array>
-#include <cmath>
 
 #include "point.h"
 
@@ -19,7 +18,7 @@ namespace polygon {
             sum += curr.x * next.y - curr.y * next.x;
         }
 
-        return abs(sum / 2);
+        return std::abs(sum / 2);
     }
 
     template<size_t N>
