@@ -1,3 +1,62 @@
+/*
+ Title: TMA4Question3.cpp
+ Description: Solution for Question 3 in TMA4
+ Date: August 25, 2017
+ Author: Vitor Mendonca
+*/
+
+/*
+ DOCUMENTATION
+
+ Program Purpose:
+    Create a container that implements a set interface using templates.
+
+ Compile (assuming Cygwin is running): make q3
+ Execution (assuming Cygwin is running): ./q3
+
+ Notes:
+    - In Cygwin, main must return type int
+    - Assumes C++11 (see Makefile for reference)
+
+ Classes:
+    Set<T>: a class template that works as a generic container, including functionality
+            of set membership, size, and iterating.
+
+ Variables:
+    mySet: an instance of the Set class with type parameter int,
+           for testing.
+    testSet: an instance of std::set with type parameter int, used to
+             to test mySet.
+*/
+
+/*
+ TEST PLAN
+
+ Normal case:
+    >./q3
+    >Test set:
+    >1 2 3 4 5
+    >My set:
+    >1 2 4 3 5
+
+ Discussion:
+    The main function in this file has the purpose of testing
+    the behaviour of the Set class. It adds a series of elements to
+    both sets and then compares the contents and size of the std::set
+    with the Set, using asserts.
+
+    It also prints, using a for-each type for loop (which uses
+    iterators behind the scenes) to test the iteration in Set.
+
+    In the output, we see that all the elements that are in testSet
+    are also in mySet and that there are no duplicates. We also see
+    that std::set keeps the elements sorted in its internal
+    representation, whereas Set doesn't.
+
+    This program takes no input.
+
+*/
+
 #include <vector>
 #include <set>
 #include <algorithm>
