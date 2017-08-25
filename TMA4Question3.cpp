@@ -10,7 +10,6 @@ private:
     std::vector<Data> innerSet;
 
 public:
-    // TODO: make iterator
     class iterator;
     friend class iterator;
 
@@ -19,27 +18,24 @@ public:
             Data* innerPointer;
 
         public:
-            iterator(const Set<Data>& set) {
-                if (set.size() > 0)
-                    innerPointer = &set.innerSet[0];
-                else
-                    innerPointer = nullptr;
-            }
+            iterator(Set<Data>& set) :
+            innerPointer(set.size() > 0 ? &set.innerSet[0] : nullptr) {}
 
-            iterator(const Data *ptr) {
-                innerPointer(ptr);
-            }
+            iterator(Data* const ptr) :
+            innerPointer(ptr) {}
 
             Data operator*() {
                 return *innerPointer;
             }
 
-            Data operator++(int) {
-                return innerPointer++;
+            iterator operator++(int) {
+                auto prev = innerPointer++;
+                return iterator(prev);
             }
 
-            Data& operator++() {
-                return ++innerPointer;
+            iterator& operator++() {
+                ++innerPointer;
+                return *this;
             }
 
             bool operator==(const Set<Data>::iterator& other) {
@@ -110,6 +106,4 @@ int main() {
         std::cout << el << " ";
     }
     std::cout << "\n";
-
-    /* assert(*std::find(mySet.begin(), mySet.end(), 4) == 4); */
 }
